@@ -1,0 +1,25 @@
+import unittest
+
+def different(n1, n2, n3):
+    rep = "deux égaux"
+    if n1 == n2 and n2 == n3:
+        rep = "trois égaux"
+    elif n1 != n2 and n2 != n3:
+        rep = "tous différents"
+    return rep
+
+class TestDifferent(unittest.TestCase):
+    def test_trois_egaux(self):
+        result = different(1, 1, 1)
+        self.assertEqual(result, "trois égaux")
+
+    def test_deux_egaux(self):
+        result = different(1, 2, 1)
+        self.assertEqual(result, "deux égaux")
+
+    def test_tous_differents(self):
+        result = different(1, 2, 3)
+        self.assertEqual(result, "tous différents")
+
+if __name__ == '__main__':
+    unittest.main()
